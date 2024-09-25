@@ -2,6 +2,7 @@ package com.example.droidcafe;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -84,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
     public void showDonutOrder(View view) {
         mOrderMessage = getString(R.string.donut_order_message);
         displayToast(mOrderMessage);
-        ;
     }
 
     /**
@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         mOrderMessage = getString(R.string.froyo_order_message);
         displayToast(mOrderMessage);
     }
+
+
 
 
 }

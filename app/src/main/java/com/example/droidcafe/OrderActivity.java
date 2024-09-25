@@ -1,5 +1,6 @@
 package com.example.droidcafe;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import androidx.fragment.app.DialogFragment;
 
 
 public class OrderActivity extends AppCompatActivity implements
@@ -99,4 +100,24 @@ public class OrderActivity extends AppCompatActivity implements
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
+    public void showDatePicker(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+        // manage the fragment automatically and show picker
+        newFragment.show(getSupportFragmentManager(), getString(R.string.datepicker));
+    }
+
+    public void processDatePickerResult(int year, int month, int day) {
+        // convert month, day, and year to separate strings
+        // and concatenate the 3 strings marks for us date format
+        String month_string = Integer.toString(month+1); // month count starts at 0 and ends at 11
+        String day_string = Integer.toString(day);
+        String year_string = Integer.toString(year);
+        String dateMessage = (month_string + "/" + day_string + "/" + year_string);
+
+        Toast.makeText(this, getString(R.string.date) + dateMessage, Toast.LENGTH_SHORT).show();
+    }
+
+
 }
